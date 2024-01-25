@@ -1,13 +1,12 @@
 from collections import Counter
 from functools import partial
 import xml.etree.ElementTree as ET
-
-import pyproj    
-import shapely
-from shapely.geometry.polygon import Polygon
-import shapely.ops as ops
-
 import warnings
+
+import pyproj
+from shapely.geometry.polygon import Polygon
+from shapely import ops
+
 
 warnings.simplefilter("ignore")
 kml_prefix = "{http://www.opengis.net/kml/2.2}"
@@ -28,7 +27,7 @@ def get_area_of_polygon(polygon):
 
 def polygon_from_kml_coordinates(coordinates: str)-> list:
     """
-    Accept a KML coordinates string 
+    Accept a KML coordinates string
     return a list of tuples suitable for feeding
     shapely.geometry.polygon.Polygon()
     example:
@@ -39,10 +38,10 @@ def polygon_from_kml_coordinates(coordinates: str)-> list:
     def cleaned(point: str):
         latitude, longitude, _ = point.split(",")
         return tuple([float(latitude), float(longitude)])
-        
+
     points = coordinates.strip().split(" ")
     return [ cleaned(point) for point in points ]
-      
+
 
 
 def kmlize(path: str) -> str:
@@ -66,7 +65,7 @@ def main():
     by_quantity = dict(sorted(types.items(), key=lambda el: el[1], reverse=True))
     for k, v in by_quantity.items():
         print(f"{v} {k}")
-    print(f"{len(parking)} total parking objects")  
+    print(f"{len(parking)} total parking objects")
 
 
     coordinates = kmlize("./Polygon/outerBoundaryIs/LinearRing/coordinates")
