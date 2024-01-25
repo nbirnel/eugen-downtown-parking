@@ -2,9 +2,9 @@ Noah Birnel
 -----------
 I live in downtown Eugene.
 
-downtown neighborhood association steering committee
-board of directors of Eugene Neighborhoods Inc
-I am not representing either of those organizations
+* downtown neighborhood association steering committee
+* board of directors of Eugene Neighborhoods Inc
+* I am not representing either of those organizations
 
 oregon
 -------------------
@@ -71,9 +71,9 @@ downtown-with-borders
 ---------------------
 
 So. 25% of downtown, 91 acres.
-Is this interesting?
-Should you be interested?
-Is it a lot?
+* Is this interesting?
+* Should you be interested?
+* Is it a lot?
 
 I'm going to start with the last question:
 No, it's not a lot. There are downtowns with 40% devoted to parking.
@@ -179,8 +179,12 @@ combined
 
 taxes
 -----
+oops
 
-I want to look at two pieces of property downtown.
+revenue
+-------
+
+Let's look at two pieces of property downtown.
 They are on the same block, owned by the same tax payer,
 and nearly identical in size.
 
@@ -193,7 +197,7 @@ That's fine; cities change.
 northeast
 ---------
 We've got the lot number, the size, and the taxes paid in 2023.
-I would like you to notice the tax rate per acre.
+Let's make sure to notice the tax rate per acre.
 
 The next one is a parking lot.
 It is still in 4 tax parcels from the pre-parking lot days.
@@ -215,15 +219,15 @@ I think so.
 discussions: is there enough parking?
 
 YES.
-is it priced correctly for the health of our city and our downtown? 
-is it in the right spot for the health of our city and our downtown?
-is it designed correctly for the health of our city and our downtown?
+* is it priced correctly for the health of our city and our downtown? 
+* is it in the right spot for the health of our city and our downtown?
+* is it designed correctly for the health of our city and our downtown?
 
 Read this book!
 Start talking and thinking about:
- dynamic pricing for street parking
- how much space we are allocating to storing vehicles downtown
- let's admit the surface parking lots are blight.
+* dynamic pricing for street parking
+* how much space we are allocating to storing vehicles downtown
+* let's admit the surface parking lots are blight.
 
 Human pleasure is not a frivolity.
 
@@ -238,4 +242,7 @@ Eugene's living room?
 ---------------------
 Eugene's parking lot?
 
-
+Thanks
+------
+Here's a link to the materials for this presentation. 
+Help!
