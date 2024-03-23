@@ -1,0 +1,91 @@
+#!/bin/sh
+
+# Generate a PDF slide deck from a sent(1) presentation.
+# requirements:
+# * sent
+# * graphicsmagick
+# * xdotool
+
+# Or you could use the pdf patch of sent
+# https://tools.suckless.org/sent/patches/pdf/
+
+usage() {
+    printf "USAGE: %s SENTFILE\n" $0 1>&2
+    exit 1
+}
+
+test "$#" -eq 1 || usage
+
+sent="$1"
+tmpdir=$(mktemp -d)
+
+# grab these from xrandr for the screen you are using
+x=2446
+y=1020
+w=1440
+h=900
+
+# if you are saddled with a title bar, adjust as needed.
+y_header=35
+
+y=$(expr $y + $y_header)
+h=$(expr $h - $y_header)
+
+count_slides() {
+    awk '
+        BEGIN {
+            count = 0
+            in_slide = 0
+        }
+
+        /^[^#]/ {
+            if (! in_slide) {
+                in_slide = 1
+                count++
+            }
+        }
+
+        /^$/ {
+            in_slide = 0
+        }
+
+        END {
+            print count
+        }
+    ' "$sent"
+}
+
+
+# portable seq -w
+seqw() {
+    last="$1"
+    awk -v end=$last '
+        BEGIN {
+            width = length(sprintf("%d", end))
+            for( i = 1; i <= end; i++) printf("%0*d\n", width, i)
+        }
+    '
+}
+
+count=$(count_slides)
+
+sent "$sent" &
+
+window="$(xdotool search \
+    --sync \
+    --all \
+    --onlyvisible \
+    --name '^sent$' 
+)"
+test -n "$window" || exit 1
+
+for slide in $(seqw $count); do
+    sleep .2
+    scrot -a $x,$y,$w,$h $tmpdir/$slide.jpg
+    xdotool key --window $window key space
+done
+
+xdotool key --window $window key q
+
+gm convert $tmpdir/*.jpg deck.pdf
+rm -rf $tmpdir/
